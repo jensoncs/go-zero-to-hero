@@ -4,14 +4,22 @@ import "fmt"
 
 func main() {
 
-	a := [...]int{1, 2, 3, 4, 5}
-
-	b := a[1:4]
-
+	a := make([]string, 4)
 	fmt.Println(a)
 
-	for i, v := range b {
-		i++
+	a[0] = "jenson"
+	a[1] = "c"
+	a[2] = "s"
+	fmt.Println(a)
+	fmt.Printf("length: %v, capacity: %v\n", len(a), cap(a))
+	a = append(a, "gojek")
+	fmt.Printf("length: %v, capacity: %v\n", len(a), cap(a))
+
+	b := a[1:3]
+	fmt.Println(b)
+	fmt.Printf("length: %v, capacity: %v\n", len(b), cap(b))
+
+	for _, v := range a {
+		fmt.Println(v)
 	}
-	fmt.Println(a)
 }
