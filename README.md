@@ -503,3 +503,6 @@
   ```
   **Note**: When your doing slice operation you dont need to output im the function, slice is refering to array and changes will directly happening to array.
 
+ ## Slice-Important
+
+ You can do slice on string. Because string is made up of runes, runes are made up of bytes, so string is made up of bytes, A string is a buch of bytes; a slice of bytes
