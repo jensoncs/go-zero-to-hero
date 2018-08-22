@@ -506,3 +506,27 @@
  ## Slice-Important
 
  You can do slice on string. Because string is made up of runes, runes are made up of bytes, so string is made up of bytes, A string is a buch of bytes; a slice of bytes
+
+## Signed and Unsigned Numbers
+
+`-,+` are signed numbers
+
+only negative numbers are unsigned numbers.
+
+How signed and unsiged working
+------------------------------
+
+Eg:
+
+0000  1000
+0001  1001
+0002  1002
+
+If the starting bit we are considing as a signed bit(+,- indicator flag) then the 0001 will be -ve 1 and 10001 will be the +1. If numbers are noted with signed flag called signed numbers. Signed numbers are reducing the capacity by half but its cover lots of other features.
+
+Unsigned numbers are only in positive and it supports more positive values. Eg : 0001 is 1 and 1000 will be 8.
+
+
+
+
+
