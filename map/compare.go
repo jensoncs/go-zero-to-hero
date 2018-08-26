@@ -20,17 +20,17 @@ func main() {
 }
 
 func compare(grp1, grp2 map[string]int) bool {
-	counter := true
+	flag := true
 	for name, _ := range grp1 {
 		if grp1[name] != grp2[name] {
-			counter = false
+			flag = false
 		} else {
 			for name, _ := range grp2 {
 				if grp2[name] != grp1[name] {
-					counter = false
+					flag = false
 				}
 			}
 		}
 	}
-	return counter
+	return flag
 }
