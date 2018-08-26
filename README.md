@@ -525,8 +525,3 @@ Eg:
 If the starting bit we are considing as a signed bit(+,- indicator flag) then the 0001 will be -ve 1 and 10001 will be the +1. If numbers are noted with signed flag called signed numbers. Signed numbers are reducing the capacity by half but its cover lots of other features.
 
 Unsigned numbers are only in positive and it supports more positive values. Eg : 0001 is 1 and 1000 will be 8.
-
-
-
-
-
