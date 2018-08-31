@@ -525,3 +525,243 @@ Eg:
 If the starting bit we are considing as a signed bit(+,- indicator flag) then the 0001 will be -ve 1 and 10001 will be the +1. If numbers are noted with signed flag called signed numbers. Signed numbers are reducing the capacity by half but its cover lots of other features.
 
 Unsigned numbers are only in positive and it supports more positive values. Eg : 0001 is 1 and 1000 will be 8.
+
+## Map
+
+Map is a key value store.
+
+p := make(map[string]int)
+
+string - Key type
+
+int - value type
+
+
+value,ok := map["key"] -  Return the value + the existance of the key
+
+Values out to map while itterating will come in different order.
+
+
+**Delete**
+
+You can delete keys from map.
+
+delete(map["key"])
+
+Map is a reference type
+
+**Equality In Map**
+
+Map by default not providing any quality fuction. You can impliment map equality using `range` over each key and copare.
+
+`reflect` - Package is providing map equality check.
+
+
+**Map Implimentation**
+
+* why hashtables
+   * hash tables serach is fast, most widely used data structure.
+   * How hash search is fast?
+    * Example you have a dictionary, you need to find the meaning of `sea` in the noraml array you have to itterate throgh each and every word in the dictionary to get the word `sea`. In hash table hash fucntion will create a pattern and put those pattern into small buckets. Now when your searching for `sea` it knows in which bucket they have to search. They will get it from those bucket very fast instead of itterating through all.
+* map is build upon hashtables
+* How hash tables work? Hash tables are build upon array.
+* Hashfucntion function(algoritham) will create hashes for your input and find a common pattern
+* All the common pattern they will be putting into bucket(arry)
+
+
+
+## String
+
+* String in go is slice of bytes.
+* Utf-8 encoded
+* Unicode complained
+
+Usually each character takes `1 byte`, just think about special chartacter if it takes `2 bytes`, it cant print. To solve this problem we have Rune.
+
+* Strings are immutable
+
+## Rune
+
+rune := []rune()
+
+## Pointers 
+
+default value of pointers is nil.
+
+`&a` = will refer to the memory address of a.
+
+`*a` - Will reference the value of a
+`*` - Reference
+
+## Structs
+
+structures
+
+user defined data types
+
+collection of fields.
+
+```
+type employee struct {
+name string
+empId int
+}
+```
+
+### Annonymous struct
+
+```
+var employee struct {
+name string
+empId int
+}
+```
+if your not specifing the type command is called annonymous struct.
+
+### Compare structs 
+
+structs are comparable if the fields are same.
+
+each of their fields are comparable struct variable are not comparable if the struct fields are not comparable.
+
+## Nested struct
+
+```
+type Person struct {
+name string
+address address
+}
+
+type address struct {
+city,state string
+}
+```
+
+## Methods 
+
+Methods are also functions. method is a function with special reciever type that is between func keyword and method name.
+
+```
+func (special reciver type) methodName() (outout type) {
+}
+```
+
+## Interface [kind of polymorphisam]
+
+* Why interface
+
+Interface specify what methods a type should have and the type woll decide how to impliment this method.
+
+defines behaviour of an object.
+
+set of method signature.
+
+E.g : Animal is a interface, animals can walk, eat ...etc
+
+But tiger is an animal, human is an animal, the walking and eating styleof those animals are different 
+
+
+how to impliment those with interface.
+
+```
+type Animal interface {
+  eat() string
+  walk() string
+}
+
+type Tiger struct {
+}
+
+type Human struct {
+}
+
+func (t Tiger) walk() string {
+}
+
+func (h Human) walk() string {
+
+}
+
+func (t Tiger) eat() string {
+}
+
+func (h Human) eat() string {
+
+}
+```
+
+## Concurrency
+
+contex switching
+
+E.g: if you have a single core processor. the processor will be allocated to one process at a time. it will switch to other process depends. the switching happening in nano seconds.
+
+User[job1]--doing something[job2]--->continue[job1]
+at 6.01                6.02             6.03
+
+### parallelism
+
+user1[job1] -----> user[job2]
+6.00                6.00
+
+Go concurrency is achived throgh goroutines.
+
+go routines are function or method that run concurrently with other methiod or fucntions. goroutines are light weight threads.
+The coast of creating goroutines are chep compare to thread.
+
+### Advantages
+
+* Its cheap compare to thread, they are few KB in size and the stack can grow and shrink according to the need. In threads the stack size is fixed.
+
+* goroutines are multiplexed to fewer no of os threads.
+
+go routines communicating throgh channel.
+
+channels will prevent race condition.
+
+func main() - main goroutine.
+
+`go funcName()`
+
+## Channels
+
+Channels are pipes to carry some data. It needs data types.
+
+var a chan int
+
+a := make(chan,int)
+
+
+## Sending and reciving data from channel
+
+```
+a := make(chan,int)
+
+a <- 1 = Writing integer 1 into the channel
+
+data := <- a   = Reading data from channel a
+
+```
+Sends and recives to a channel is blocking by default, means when data is sent to a channel the control os blocked until some of the goroutine reads from the channel. Similarly when data is read from a channel the data read is blocked until some goroutines write data to the channel.
+
+
+## Deadlock
+In an operating system, a deadlock occurs when a process or thread enters a waiting state because a requested system resource is held by another waiting process, which in turn is waiting for another resource held by another waiting process.
+
+A deadlock happens when a group of goroutines are waiting for each other and none of them is able to proceed.
+
+```
+func main() {
+	ch := make(chan int)
+	ch <- 1
+	fmt.Println(<-ch)
+}
+```
+The program will get stuck on the channel send operation waiting forever for someone to read the value. Go is able to detect situations like this at runtime.
+
+## Buffer channel
+
+
+## Waiting group
+
+## Worker pool
