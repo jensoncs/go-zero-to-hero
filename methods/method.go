@@ -17,6 +17,6 @@ func main() {
 	emp1.display()
 }
 
-func (e *Employ) display() {
+func (e Employ) display() {
 	fmt.Println(e.name)
 }
