@@ -1,4 +1,4 @@
-package main
+package dynamodb
 
 import (
 	"fmt"
@@ -24,11 +24,13 @@ type ZipCodes struct {
 	Zone        string   `json:"zone"`
 }
 
+/*
 func main() {
 	getZipCodeItemsFromDynamoDb("0212xyz")
 }
+*/
 
-func getZipCodeItemsFromDynamoDb(zipcode string) {
+func GetZipCodeItemsFromDynamoDb(zipcode string) (ZipCodes,error) {
 	dynamoRe := ZipCodes{}
 	sess, err := session.NewSession(&aws.Config{
 		Region: aws.String("eu-west-1"),
@@ -60,5 +62,5 @@ func getZipCodeItemsFromDynamoDb(zipcode string) {
 	if err != nil {
 		fmt.Println("Error retriving data")
 	}
-	fmt.Println(dynamoRe)
+	return dynamoRe, err
 }
