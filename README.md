@@ -153,7 +153,7 @@
 
   go help - to see available commands with help
   ```
-  ## Fucnction
+  ## Function
 
   Function can accept zero or more parameters. 
 
