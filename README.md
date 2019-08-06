@@ -272,7 +272,7 @@
   ```
   static binding - while compile time only it will identify the constanst.
   ```
-  fun add(a,b int) int {     - Function signature
+  func add(a,b int) int {     - Function signature
 
   xxxx                       - Func body
   xxxx
@@ -282,7 +282,7 @@
 
   Call by reference is in func it will refere to the memory address
 
-  fun add(&a,&b)
+  func add(&a,&b)
 
   Call by value is in func values will be passed.
 
@@ -300,7 +300,7 @@
   ```
   ## Exported names
 
-  Varibales starting with capital letters are exported variable in a package.
+  Variables starting with capital letters are exported variable in a package.
 
   Eg: math.Pi
 
@@ -562,10 +562,10 @@ Map by default not providing any quality fuction. You can impliment map equality
 * why hashtables
    * hash tables serach is fast, most widely used data structure.
    * How hash search is fast?
-    * Example you have a dictionary, you need to find the meaning of `sea` in the noraml array you have to itterate throgh each and every word in the dictionary to get the word `sea`. In hash table hash fucntion will create a pattern and put those pattern into small buckets. Now when your searching for `sea` it knows in which bucket they have to search. They will get it from those bucket very fast instead of itterating through all.
+    * Example you have a dictionary, you need to find the meaning of `sea` in the noraml array you have to itterate throgh each and every word in the dictionary to get the word `sea`. In hash table hash function will create a pattern and put those pattern into small buckets. Now when your searching for `sea` it knows in which bucket they have to search. They will get it from those bucket very fast instead of itterating through all.
 * map is build upon hashtables
 * How hash tables work? Hash tables are build upon array.
-* Hashfucntion function(algoritham) will create hashes for your input and find a common pattern
+* Hashfunction function(algoritham) will create hashes for your input and find a common pattern
 * All the common pattern they will be putting into bucket(arry)
 
 
@@ -706,8 +706,8 @@ user1[job1] -----> user[job2]
 
 Go concurrency is achived throgh goroutines.
 
-go routines are function or method that run concurrently with other methiod or fucntions. goroutines are light weight threads.
-The coast of creating goroutines are chep compare to thread.
+go routines are function or method that run concurrently with other methods or functions. goroutines are light weight threads.
+The coast of creating goroutines are cheap compare to thread.
 
 ### Advantages
 
@@ -715,7 +715,7 @@ The coast of creating goroutines are chep compare to thread.
 
 * goroutines are multiplexed to fewer no of os threads.
 
-go routines communicating throgh channel.
+go routines communicating through channel.
 
 channels will prevent race condition.
 
@@ -732,7 +732,7 @@ var a chan int
 a := make(chan,int)
 
 
-## Sending and reciving data from channel
+## Sending and receiving data from channel
 
 ```
 a := make(chan,int)
