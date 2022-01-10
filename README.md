@@ -242,12 +242,12 @@
   -----------------------------
   ```
   var (
-  vatr i = 10
+  var i = 10
   var name = "jenson"
   )
   ```
   ## Types
-
+vatr golang
   1. bool 
   2. string
   3.  int8, int16, 1nt32
