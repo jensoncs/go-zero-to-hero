@@ -11,7 +11,7 @@
 
   * Compiled language -: Basically, compiled code can be executed directly by the computer's CPU. That is, the executable code is specified in the CPU's "native" language (assembly language).
      -  Statically typed programming languages do type checking at compile-time (e.g. c, c++, go).
-     -  staically typed will inference the variable while intializing ( eg : var i = true, automatically identify its a boolenan.)
+     -  Statically typed will inference the variable while intializing ( eg : var i = true, automatically identify its a boolean.)
 
   ## Compile stage
 
